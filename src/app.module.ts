@@ -6,6 +6,8 @@ import { AppService } from './app.service';
 import { PostModule } from './modules/post/post.module';
 import { UserModule } from './modules/user/user.module';
 import { AuthModule } from './modules/auth/auth.module';
+import { CategoryModule } from './modules/category/category.module';
+import { TagModule } from './modules/tag/tag.module';
 import envConfig from '../config/env';
 
 @Module({
@@ -33,6 +35,8 @@ import envConfig from '../config/env';
     PostModule,
     UserModule,
     AuthModule,
+    CategoryModule,
+    TagModule,
   ],
   controllers: [AppController],
   providers: [AppService],
