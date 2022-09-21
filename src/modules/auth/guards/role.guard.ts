@@ -10,7 +10,10 @@ export class RoleGuard implements CanActivate {
   }
 
   canActivate(context: ExecutionContext): boolean {
+    // 反射器从上下文中获取角色列表
     const roles = this.reflector.get("roles", context.getHandler());
+
+    // 接口没配置权限，直接过
     if (!roles) {
       return true;
     }
@@ -20,6 +23,8 @@ export class RoleGuard implements CanActivate {
     if (!user) {
       return false;
     }
+
+    console.log(roles, user)
 
     const hasRoles = roles.some(role => role === user.role);
     return hasRoles;
